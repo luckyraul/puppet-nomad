@@ -17,7 +17,7 @@ class nomad (
 ) inherits nomad::params {
 
   if $server and $client {
-      fail("Can't use both server and client mode")
+      #fail("Can't use both server and client mode")
   }
 
   if $server {
