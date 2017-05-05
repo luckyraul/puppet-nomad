@@ -4,7 +4,7 @@
 # It sets variables according to platform
 #
 class nomad::params {
-  $version  = '0.4.0'
+  $version  = '0.5.6'
   $url_base = 'https://releases.hashicorp.com/nomad/'
 
   $service_url  = 'https://raw.githubusercontent.com/hashicorp/nomad/master/dist/systemd/nomad.service'
