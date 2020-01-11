@@ -5,10 +5,9 @@ class nomad::config (
 
   file { $nomad::config_dir:
     ensure => 'directory'
-  } ->
-  file { 'nomad config.json':
+  } -> file { 'nomad config.json':
     ensure  => present,
     path    => "${nomad::config_dir}/config.json",
-    content => nomad_sorted_json($config_hash, $nomad::pretty_config, $nomad::pretty_config_indent),
+    content => nomad::sorted_json($config_hash, $nomad::pretty_config, $nomad::pretty_config_indent),
   }
 }

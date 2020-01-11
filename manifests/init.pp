@@ -16,10 +16,6 @@ class nomad (
   $service_ensure       = 'running',
 ) inherits nomad::params {
 
-  if $server and $client {
-      #fail("Can't use both server and client mode")
-  }
-
   if $server {
     $config_server_hash = $nomad::params::server_defaults
   } else {
@@ -36,7 +32,7 @@ class nomad (
 
   validate_hash($config_hash_real)
 
-  anchor {'nomad_first': } -> class { 'nomad::install': } ->
-  class { 'nomad::config': config_hash => $config_hash_real } ~>
-  class { 'nomad::service': }
+  anchor {'nomad_first': } -> class { 'nomad::install': }
+    -> class { 'nomad::config': config_hash => $config_hash_real }
+    ~> class { 'nomad::service': }
 }

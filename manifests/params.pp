@@ -4,13 +4,13 @@
 # It sets variables according to platform
 #
 class nomad::params {
-  $version  = '0.5.6'
+  $version  = '0.10.2'
   $url_base = 'https://releases.hashicorp.com/nomad/'
 
   $service_url  = 'https://raw.githubusercontent.com/hashicorp/nomad/master/dist/systemd/nomad.service'
   $service_path = '/etc/systemd/system/nomad.service'
 
-  $config_dir = '/etc/nomad'
+  $config_dir = '/etc/nomad.d'
   $data_dir = '/var/lib/nomad'
   $config_defaults = {
     data_dir => $data_dir
