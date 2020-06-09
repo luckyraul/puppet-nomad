@@ -30,7 +30,7 @@ class nomad (
 
   $config_hash_real = deep_merge($config_defaults, $config_server_hash, $config_client_hash, $config_hash)
 
-  validate_hash($config_hash_real)
+  # validate_hash($config_hash_real)
 
   anchor {'nomad_first': } -> class { 'nomad::install': }
     -> class { 'nomad::config': config_hash => $config_hash_real }
