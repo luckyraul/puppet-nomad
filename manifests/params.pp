@@ -7,7 +7,7 @@ class nomad::params {
   $version  = '0.12.9'
   $url_base = 'https://releases.hashicorp.com/nomad/'
 
-  $service_url  = 'https://raw.githubusercontent.com/hashicorp/nomad/master/dist/systemd/nomad.service'
+  $service_url  = 'https://raw.githubusercontent.com/hashicorp/nomad/main/terraform/shared/config/nomad.service'
   $service_path = '/etc/systemd/system/nomad.service'
 
   $config_dir = '/etc/nomad.d'
