@@ -5,7 +5,7 @@
 #
 class nomad::service {
   service { 'nomad':
-      ensure => $nomad::service_ensure,
-      enable => $nomad::service_enable,
+    ensure => $nomad::service_ensure,
+    enable => $nomad::service_enable,
   }
 }

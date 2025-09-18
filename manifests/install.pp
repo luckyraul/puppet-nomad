@@ -1,8 +1,7 @@
 # == Class nomad::install
 class nomad::install {
-
   staging::deploy { "nomad-${nomad::version}.zip":
-    source  => "${nomad::url_base}${nomad::version}/nomad_${nomad::version}_linux_${::architecture}.zip",
+    source  => "${nomad::url_base}${nomad::version}/nomad_${nomad::version}_linux_${facts['os']['architecture']}.zip",
     target  => '/usr/local/bin/',
     creates => '/usr/local/bin/nomad',
   } -> staging::file { 'nomad-systemd.service':
@@ -10,8 +9,7 @@ class nomad::install {
     target => $nomad::service_path,
   } ~> exec { 'nomad-systemd-reload':
     command     => 'systemctl daemon-reload',
-    path        => [ '/usr/bin', '/bin', '/usr/sbin' ],
+    path        => ['/usr/bin', '/bin', '/usr/sbin'],
     refreshonly => true,
   }
-
 }

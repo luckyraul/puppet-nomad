@@ -13,24 +13,24 @@ class nomad::params {
   $config_dir = '/etc/nomad.d'
   $data_dir = '/var/lib/nomad'
   $config_defaults = {
-    data_dir => $data_dir
+    data_dir => $data_dir,
   }
 
   $server_defaults = {
     bind_addr => '0.0.0.0',
     advertise => {
-      rpc => "${::ipaddress}:4647"
+      rpc => "${facts['networking']['ip']}:4647",
     },
     server => {
       enabled => true,
       bootstrap_expect => 1,
-    }
+    },
   }
 
   $client_defaults = {
     bind_addr => '127.0.0.1',
     client => {
-      enabled => true
-    }
+      enabled => true,
+    },
   }
 }
